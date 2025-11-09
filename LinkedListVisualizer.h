@@ -2,6 +2,7 @@
 #include "AnimationStep.h"
 #include "Command.h"
 #include <deque>
+#include <memory>
 #include <functional>
 
 class LinkedListVisualizer {
