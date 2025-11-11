@@ -1,0 +1,17 @@
+[
+  {"META":1,"version":1,"seed":1453417476},
+  {"op":"INSERT","target":"list","index":0,"t":1.903817,"value":91},
+  {"op":"INSERT","target":"list","index":0,"t":2.380600,"value":45},
+  {"op":"INSERT","target":"list","index":0,"t":2.838887,"value":34},
+  {"op":"INSERT","target":"list","index":0,"t":3.275921,"value":73},
+  {"op":"INSERT","target":"vector","index":1,"t":4.135294,"value":81},
+  {"op":"INSERT","target":"vector","index":0,"t":5.294078,"value":20},
+  {"op":"INSERT","target":"vector","index":1,"t":6.457870,"value":10},
+  {"op":"INSERT","target":"vector","index":3,"t":8.044206,"value":56},
+  {"op":"INSERT","target":"vector","index":5,"t":11.026454,"value":98},
+  {"op":"INSERT","target":"vector","index":1,"t":13.388422,"value":46},
+  {"op":"INSERT","target":"list","index":0,"t":16.173227,"value":53},
+  {"op":"INSERT","target":"list","index":0,"t":17.563582,"value":37},
+  {"op":"INSERT","target":"vector","index":5,"t":18.376347,"value":31},
+  {"op":"INSERT","target":"vector","index":6,"t":21.653893,"value":96}
+]

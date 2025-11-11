@@ -1,0 +1,17 @@
+INSERT list 1 5
+INSERT vector 1 73
+INSERT vector 1 10
+INSERT list 1 72
+INSERT vector 1 5
+INSERT list 1 66
+REMOVE vector 0
+REMOVE vector 0
+REMOVE list 0
+REMOVE vector 0
+REMOVE vector 0
+REMOVE list 0
+REMOVE vector 0
+REMOVE vector 0
+REMOVE vector 0
+REMOVE list 0
+REMOVE list 0
