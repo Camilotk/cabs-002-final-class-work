@@ -1,11 +1,11 @@
-CXX = g++
+CXX ?= g++
 
 EXEC = visualizador
 
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
-CXXFLAGS = -std=c++23 -Wall -Wextra -g $(shell pkg-config --cflags sfml-all)
+CXXFLAGS = -std=c++2b -Wall -Wextra -g $(shell pkg-config --cflags sfml-all)
 
 LDLIBS = $(shell pkg-config --libs sfml-all)
 
