@@ -1,5 +1,7 @@
 #include "CommandRecorder.h"
 #include <chrono>
+#include <iomanip>
+#include <algorithm>
 
 static double nowSeconds() {
     using namespace std::chrono;
@@ -10,10 +12,9 @@ static double nowSeconds() {
 
 void CommandRecorder::start() {
     m_recording = true;
+    m_commands.clear();
     m_startTime = nowSeconds();
-    if (m_commands.empty()) {
-        m_seed = static_cast<unsigned int>(std::chrono::system_clock::now().time_since_epoch().count() & 0xFFFFFFFF);
-    }
+    m_seed = static_cast<unsigned int>(std::chrono::system_clock::now().time_since_epoch().count() & 0xFFFFFFFF);
 }
 
 void CommandRecorder::record(const std::string& op, const std::string& target, size_t index, std::optional<int> value) {
@@ -124,5 +125,8 @@ bool CommandRecorder::loadJSON(const std::string& filePath) {
         if (!isMeta && !rc.op.empty()) m_commands.push_back(rc);
         pos = end + 1;
     }
+
+    std::sort(m_commands.begin(), m_commands.end(), [](const RecordedCommand& a, const RecordedCommand& b){ return a.t < b.t; });
+
     return true;
 }

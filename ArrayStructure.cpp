@@ -22,3 +22,8 @@ void ArrayStructure::resize(size_t newCap) {
     m_capacity = newCap;
     notify();
 }
+
+void ArrayStructure::clear() {
+    m_elements.clear();
+    notify();
+}

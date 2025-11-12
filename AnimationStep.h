@@ -100,3 +100,11 @@ public:
 private:
     size_t m_index;
 };
+
+class ClearAllStep : public AnimationStep {
+public:
+    bool update(std::vector<VisualNode>& nodes, float /*dt*/) override {
+        nodes.clear();
+        return true;
+    }
+};

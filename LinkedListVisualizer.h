@@ -8,6 +8,8 @@ public:
 
     void push_front(int value);
     void pop_front();
+    void insertAt(int value, size_t index);
+    void clearAnimated();
     
     void draw(sf::RenderWindow& window) const override;
     void reflow(float windowWidth, float panelWidth = 280.f);
@@ -15,6 +17,7 @@ public:
 private:
     void buildPushFrontAnimation(int value);
     void buildPopFrontAnimation();
+    void buildInsertAtAnimation(int value, size_t index);
 
     sf::Vector2f getPositionForIndex(size_t i);
 
