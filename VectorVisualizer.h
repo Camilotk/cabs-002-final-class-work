@@ -1,37 +1,32 @@
 #pragma once
-#include "AnimationStep.h"
-#include "Command.h"
-#include <deque>
-#include <memory>
-#include <functional>
+#include "Visualizer.h"
+#include "LayoutPolicy.h"
 
-class VectorVisualizer {
+class VectorVisualizer final : public Visualizer {
 public:
     VectorVisualizer(sf::Font& font, const sf::Vector2f& position);
 
     void insert(int value, size_t index);
     void remove(size_t index);
-
-    void update(float dt);
-    void draw(sf::RenderWindow& window);
-
-    const std::deque<Command>& getOperationQueue() const;
+    void clearAnimated();
+    
+    void draw(sf::RenderWindow& window) const override;
+    void reflow(float windowWidth, float panelWidth=280.f);
 
 private:
     void buildInsertAnimation(int value, size_t index);
     void buildRemoveAnimation(size_t index);
 
-    sf::Vector2f getPositionForIndex(size_t i);
+    sf::Vector2f getPositionForIndex(size_t i) const;
 
-    std::vector<VisualNode> m_nodes;
     sf::Font& m_font;
     sf::Vector2f m_position;
+    std::unique_ptr<ILayoutPolicy> m_layout; 
 
-    std::deque<std::unique_ptr<AnimationStep>> m_animationQueue;
-    std::deque<Command> m_operationQueue;
-
-    const float BOX_WIDTH = 60.f;
-    const float BOX_HEIGHT = 60.f;
-    const float SPACING = 10.f;
-    const int FONT_SIZE = 24;
+    static constexpr float BOX_WIDTH = 60.f;
+    static constexpr float BOX_HEIGHT = 60.f;
+    static constexpr float SPACING = 10.f;
+    static constexpr int FONT_SIZE = 24;
+    float m_lastLayoutWidth = 0.f;
+    size_t m_lastNodeCount = 0;
 };
